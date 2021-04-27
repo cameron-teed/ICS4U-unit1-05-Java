@@ -1,10 +1,10 @@
 /*
-* The logging program determines how many logs a truck can carry if a log
-* weighs 20kg/m and is either 0.25m, 0.5m or 1m and the truck can carry 1100kg.
+* The dice program lets you create paramaters for a dice then
+* makes you guess the number
 *
 * @author  Cameron Teed
 * @version 1.0
-* @since   2020-04-22
+* @since   2020-04-27
 * Class Dice.
 */
 
@@ -20,9 +20,9 @@ final class Dice {
     }
 
   /**
-  * The logging program determines how many logs a truck can carry if a log
-  * weighs 20kg/m and is either 0.25m, 0.5m or 1m and the truck can carry
-  * 1100kg.
+  * The dice program lets you create paramaters for a dice then
+  * makes you guess the number.
+  *
   * @param args
   */
 
@@ -33,29 +33,36 @@ final class Dice {
     // ask for user input
     System.out.println("Please enter the range of your dice (1-?):");
 
+    // Creates
     int counter = 0;
 
-    // checks if input is a float
+    // Begins try statment
     try {
-      // Stores float in length
+      // Stores the input as an int
       int uperbound = myObj.nextInt();
 
-      // Checks if you inputed the correct length
+      // Checks if you inputed the dice sides
       if (uperbound > 1) {
-          // Outputs how many logs the truck can carry
+          // Creates a random number
           int randomint = (int) (Math.random() * (uperbound - 1 + 1) + 1);
 
+          // infinit loop
           while (true) {
+            // Asks user to input guess
             System.out.println();
             System.out.println("Please enter your guess for what number the"
             + " dice landed on:");
 
+            // Gets users guess
             int userguess = myObj.nextInt();
 
+            // Counts how many tries it took
             counter = counter + 1;
 
+            // Checks if you guessed the correct number
             if (userguess == randomint) {
 
+              // Prints out that you got the number and the tries
               System.out.println();
               System.out.println("You guessed the number!");
               System.out.println("It was " + randomint + "!");
@@ -63,19 +70,25 @@ final class Dice {
               System.out.println();
               System.out.println("Done");
 
+              // Exits loop
               break;
+
+            // Runs if you guess the wrong number
             } else {
+              // Prints that you need to gues again
               System.out.println();
               System.out.println("Guess again!");
             }
           }
 
+    // Runs if number less than 1 was inputted
     } else {
       // Outputs that the correct number needs to be inputed
       System.out.println();
       System.out.println("Please enter a number greater than 1");
       }
 
+    // Catches errors
     } catch (Exception e) {
       // Runs if anything other than an intiger is inputted
       System.out.println();
